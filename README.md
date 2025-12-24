@@ -1,0 +1,1 @@
+# patika-dotnet-core-practices
