@@ -19,5 +19,10 @@ inheritance, abstraction, and polymorphism using a zoo management scenario.
 ## Purpose
 Educational project for demonstrating OOP principles.
 
+## Implementation (C#)
+
+This system is implemented in C# in accordance with the class diagram shown above.
+Each animal type demonstrates polymorphism by applying its own feeding and medication
+dosage behaviors. For simplicity, the sample code is provided within the Program.cs file.
 
 
