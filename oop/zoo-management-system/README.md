@@ -18,9 +18,5 @@ inheritance, abstraction, and polymorphism using a zoo management scenario.
 ## Purpose
 Educational project for demonstrating OOP principles.
 
-## Class Diagram
-![Class Diagram](class-diagram.png)
 
-Animal <|-- Rat
-@enduml
 
