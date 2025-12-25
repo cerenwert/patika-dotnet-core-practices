@@ -17,24 +17,10 @@ inheritance, abstraction, and polymorphism using a zoo management scenario.
 
 ## Purpose
 Educational project for demonstrating OOP principles.
+
 ## Class Diagram
+![Class Diagram](class-diagram.png)
 
-```plantuml
-@startuml
-abstract class Animal {
-  - speciesName : String
-  - weight : double
-  - age : int
-  + getDosage() : double
-  + getFeedSchedule() : String
-}
-
-class Horse
-class Lion
-class Rat
-
-Animal <|-- Horse
-Animal <|-- Lion
 Animal <|-- Rat
 @enduml
 
