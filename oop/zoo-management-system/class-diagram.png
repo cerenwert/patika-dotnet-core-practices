@@ -1,0 +1,15 @@
+abstract class Animal {
+  - speciesName : String
+  - weight : double
+  - age : int
+  + getDosage() : double
+  + getFeedSchedule() : String
+}
+
+class Horse
+class Lion
+class Rat
+
+Animal <|-- Horse
+Animal <|-- Lion
+Animal <|-- Rat
