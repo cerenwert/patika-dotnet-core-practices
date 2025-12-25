@@ -9,7 +9,8 @@ inheritance, abstraction, and polymorphism using a zoo management scenario.
 - Polymorphism via overridden methods
 
 ## Class Diagram
-![Class Diagram](diagrams/class-diagram.png)
+<img width="272" height="250" alt="diyagram" src="https://github.com/user-attachments/assets/a6d8ac24-1c2f-4975-b1ac-ce0791dd2f92" />
+
 
 ## Technologies
 - Java
