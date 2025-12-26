@@ -2,24 +2,6 @@
 
 ```mermaid
 classDiagram
-    class Building
-
-    class Elevator {
-        elevatorId
-        currentFloor
-        direction
-        capacity
-    }
-
-    class Floor {
-        floorNumber
-    }
-
-    class Door {
-        isOpen
-    }
-
-    class ControlPanel
 
     class Button {
         <<abstract>>
@@ -34,29 +16,80 @@ classDiagram
         floorNumber
     }
 
+    Button <|-- CallButton
+    Button <|-- FloorButton
+
+    class Door {
+        isOpen
+        open()
+        close()
+    }
+
+    class SignalLight {
+        direction
+        turnOn()
+    }
+
+    class ArrivalBell {
+        ring()
+    }
+
+    class ControlPanel {
+        floorButtons
+        openDoorButton
+        closeDoorButton
+        emergencyButton
+    }
+
+    class Elevator {
+        elevatorId
+        currentFloor
+        direction
+        capacity
+        status
+    }
+
+    class Floor {
+        floorNumber
+    }
+
     class Passenger {
+        passengerId
         startFloor
         destinationFloor
     }
 
-    class ElevatorController
+    class ElevatorController {
+        assignElevator()
+    }
 
-    %% Inheritance
-    Button <|-- CallButton
-    Button <|-- FloorButton
+    class SimulatorClock {
+        currentTime
+        tick()
+    }
 
-    %% Associations
+    class RandomGenerator {
+        generatePassenger()
+    }
+
+    class Building
+
     Building "1" --> "*" Elevator
     Building "1" --> "*" Floor
 
     Elevator "1" --> "1" Door
     Elevator "1" --> "1" ControlPanel
+    Elevator "1" --> "1" SignalLight
 
     Floor "1" --> "*" CallButton
+    Floor "1" --> "*" Door
+    Floor "1" --> "1" ArrivalBell
+    Floor "1" --> "1" SignalLight
 
     Passenger "*" --> "1" Elevator
 
     ElevatorController "1" --> "*" Elevator
+
 ```
 # 🛗 Elevator Simulation System
 
