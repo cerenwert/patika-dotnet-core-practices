@@ -1,0 +1,56 @@
+@startuml
+
+class User {
+  userId
+  name
+  email
+}
+
+class Subscriber {
+  creditBalance
+}
+
+class Movie {
+  movieId
+  title
+  price
+  rentalCreditCost
+  isAvailable
+}
+
+class CreditTransaction {
+  transactionId
+  amount
+  date
+}
+
+class Purchase {
+  purchaseId
+  purchaseDate
+}
+
+class Rental {
+  rentalId
+  rentalDate
+}
+
+class MovieRequest {
+  requestId
+  requestDate
+  status
+}
+
+User <|-- Subscriber
+
+User "1" -- "*" Purchase : buys
+Purchase "*" -- "1" Movie
+
+Subscriber "1" -- "*" Rental : rents
+Rental "*" -- "1" Movie
+
+Subscriber "1" -- "*" CreditTransaction : buys credit
+
+User "1" -- "*" MovieRequest : requests
+MovieRequest "*" -- "1" Movie
+
+@enduml
