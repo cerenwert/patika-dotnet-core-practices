@@ -146,4 +146,81 @@ class Passenger
 
 class ElevatorController
 {
-    public List<Elevator> Elevators { get; set; } =
+    public List<Elevator> Elevators { get; set; } = new();
+
+    public Elevator AssignElevator(int floor)
+    {
+        // Basit seçim: ilk müsait asansör
+        Elevator elevator = Elevators[0];
+        Console.WriteLine($"Elevator {elevator.ElevatorId} assigned to floor {floor}");
+        return elevator;
+    }
+}
+
+class SimulatorClock
+{
+    public DateTime CurrentTime { get; private set; } = DateTime.Now;
+
+    public void Tick()
+    {
+        CurrentTime = CurrentTime.AddSeconds(1);
+    }
+}
+
+class RandomGenerator
+{
+    private Random _random = new();
+
+    public Passenger GeneratePassenger()
+    {
+        return new Passenger
+        {
+            PassengerId = _random.Next(1, 1000),
+            StartFloor = _random.Next(1, 12),
+            DestinationFloor = _random.Next(1, 12)
+        };
+    }
+}
+
+#endregion
+
+#region Building
+
+class Building
+{
+    public List<Floor> Floors { get; set; } = new();
+    public List<Elevator> Elevators { get; set; } = new();
+}
+
+#endregion
+
+class Program
+{
+    static void Main()
+    {
+        // Demo amaçlı minimal akış
+
+        Building building = new Building();
+
+        Elevator elevator = new Elevator
+        {
+            ElevatorId = 1,
+            CurrentFloor = 1
+        };
+
+        building.Elevators.Add(elevator);
+
+        ElevatorController controller = new ElevatorController();
+        controller.Elevators.Add(elevator);
+
+        Passenger passenger = new RandomGenerator().GeneratePassenger();
+
+        Elevator assignedElevator = controller.AssignElevator(passenger.StartFloor);
+        assignedElevator.MoveToFloor(passenger.StartFloor);
+        assignedElevator.Door.Open();
+        assignedElevator.Door.Close();
+        assignedElevator.MoveToFloor(passenger.DestinationFloor);
+
+        Console.WriteLine("Simulation step completed.");
+    }
+}
