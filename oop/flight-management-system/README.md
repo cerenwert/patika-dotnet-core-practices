@@ -1,58 +1,78 @@
-# ✈️ Flight & Pilot Management System (UML Design)
+# ✈️ Flight & Pilot Management System
 
-This repository contains an **object-oriented design** for a flight and pilot management system.
-
-The goal of this project is to model:
-- Airlines
-- Flights
-- Airplanes
-- Pilots
-- Airports
-
-using **UML Class Diagrams**.
+This repository contains a simple **UML-based system design** for managing flights, pilots, airplanes, and airlines.
+The project focuses on **Object-Oriented Programming (OOP)** fundamentals.
 
 ---
 
-## 📌 System Overview
+## 📌 Project Scope
 
-- Airlines operate flights.
-- Airlines own airplanes and employ pilots.
+The system models the following concepts:
+
+- Airlines operate flights
+- Airlines own airplanes and employ pilots
 - Each flight:
   - Has a unique ID
   - Uses one airplane
   - Has one pilot and one co-pilot
   - Has departure and arrival airports
-- Airplanes can be **working** or **under maintenance**
+- Airplanes can be in working or maintenance state
 - Each airplane has a type
-- Airplane types define how many pilots are required
+- Airplane types define required pilot count
 - Pilots have experience levels
 
 ---
 
-## 🧩 UML Class Diagram
+##  UML Class Diagram
 
-The class diagram below represents the system design:
-<img width="558" height="441" alt="flight-management-system-uml" src="https://github.com/user-attachments/assets/7d465ded-a065-41c0-8401-eff7b697f1de" />
+The system is designed using a **UML Class Diagram**.
 
+- `Airline` owns airplanes and employs pilots
+- `Flight` is the central class that connects:
+  - `Airplane`
+  - `Pilot` (Pilot & Co-Pilot)
+  - `Airport`
+- `AirplaneType` defines how many pilots are required for an airplane
+
+📄 UML source file:  
+➡️ **ClassDiagram.puml*
+<img width="558" height="441" alt="flight-management-system-uml" src="https://github.com/user-attachments/assets/9cb88d99-e358-4ac0-af0a-4365c60cc794" />
 
 
 ---
 
-## 🛠️ Tools Used
+## 💻 C# Skeleton (Program.cs)
 
-- UML notation
-- PlantUML (for diagram generation)
+A simple **C# class skeleton** is provided to demonstrate the UML design in code form.
+
+- All classes are defined in a single file
+- No business logic is implemented
+- Focus is on structure, not functionality
+
+📄 C# source file:  
+➡️ **Program.cs**
 
 ---
 
-## 🚀 Future Improvements
+##  Concepts Demonstrated
 
-- Add source code implementation (C# / Java)
-- Add sequence diagrams
+- Object-Oriented Design
+- UML Class Diagrams
+- Associations & Multiplicity
+- Composition-like relationships
+- Enum usage (airplane status)
+
+---
+
+##  Possible Improvements
+
 - Add validation rules (pilot experience vs airplane type)
+- Split classes into separate files
+- Add sequence diagrams
+- Implement business logic
 
 ---
 
-## 👤 Author
+##  Author
 
-Designed for learning **Object-Oriented Programming & UML** concepts.
+Created for learning and portfolio purposes.
