@@ -32,8 +32,9 @@ using **UML Class Diagrams**.
 ## 🧩 UML Class Diagram
 
 The class diagram below represents the system design:
+<img width="558" height="441" alt="flight-management-system-uml" src="https://github.com/user-attachments/assets/7d465ded-a065-41c0-8401-eff7b697f1de" />
 
-![Class Diagram](diagrams/class-diagram.png)
+
 
 ---
 
